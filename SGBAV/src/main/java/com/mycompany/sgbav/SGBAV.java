@@ -1,5 +1,6 @@
-
 package com.mycompany.sgbav;
+import clases.Libro;
+import clases.ListaDoblementeEnlazada;
 
 import java.util.Scanner;
 
@@ -8,6 +9,7 @@ public class SGBAV {
     public static void main(String[] args) {
  
         Scanner scanner = new Scanner(System.in);
+        ListaDoblementeEnlazada<Libro> listaLibros = new ListaDoblementeEnlazada<>();
         int opc;
 
         while (true) {
@@ -30,33 +32,50 @@ public class SGBAV {
                    int subOpc;
                     do{
                         System.out.println("\n***Gestion de libros***");
-                        System.out.println("1. Opcion uno");
+                        System.out.println("1. Agregar Libro");
                         System.out.println("2. Opcion dos");
                         System.out.println("3. Opcion tres");
-                        System.out.println("4. Volver al Menú Principal");
+                        System.out.println("4. Ver Lista de Libros");
+                        System.out.println("5. Volver al Menu Principal");
 
                         System.out.print("Seleccione una opcion: ");
                         subOpc = scanner.nextInt();
 
                         switch (subOpc) {
                             case 1:
-                                System.out.print("opcion uno");  
+                                System.out.print("Ingrese el titulo del libro: ");
+                                String titulo = scanner.next();
+                                System.out.print("Ingrese el autor del libro: ");
+                                String autor = scanner.next(); 
+                                System.out.print("Ingrese el autor del id: ");
+                                String id = scanner.next(); 
+                                System.out.print("Ingrese el autor del categoria: ");
+                                String categoria = scanner.next(); 
+                                System.out.print("Ingrese el autor del stock: ");
+                                int stock = scanner.nextInt();
+                                
+                                Libro nuevoLibro = new Libro(titulo, autor, id, categoria, stock);
+                                listaLibros.agregarElemento(nuevoLibro);
+                                System.out.println("Libro registrado correctamente.");
                                 break;
                             case 2:
                                 System.out.print("opcion dos");
                                 break;
                             case 3:
-                                System.out.println("opcion tres");
+                                
                                 break;
                             case 4:
+                                listaLibros.verLista();
+                                break;
+                            case 5:
                                 System.out.println("Volviendo al menu principal...");
                                 System.out.println("                              ");
-                                break;
+                                break;    
                             default:
                                 System.out.println("Opción no valida. Por favor, seleccione una opcion del 1 al 4.");
                                 System.out.println("                              ");
                         }
-                    } while (subOpc != 4);
+                    } while (subOpc != 5);
                     break;
                 case 3:
                     System.out.println("Prestamo de Libros");
