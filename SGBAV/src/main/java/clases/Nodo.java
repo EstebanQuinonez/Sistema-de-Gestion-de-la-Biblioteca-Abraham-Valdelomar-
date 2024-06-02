@@ -1,4 +1,5 @@
 package clases;
+
 public class Nodo<T> {
     public T dato;
     public Nodo<T> anterior;

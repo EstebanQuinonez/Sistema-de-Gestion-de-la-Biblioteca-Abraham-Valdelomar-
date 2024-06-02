@@ -21,15 +21,30 @@ public class ListaDoblementeEnlazada<T> {
             cola = nuevoNodo;
         }
     }
+    
+    public Nodo<T> getCabeza() {
+        return cabeza;
+    }
 
     public void verLista() {
     Nodo<T> actual = cabeza;
     while (actual != null) {
         System.out.println(actual.dato);
         actual = actual.siguiente;
+       }
     }
-}
-
-
+    
+    public T obtenerElemento(int indice) {
+    Nodo<T> actual = cabeza;
+    int contador = 0;
+    while (actual != null) {
+        if (contador == indice) {
+            return actual.dato;
+        }
+        contador++;
+        actual = actual.siguiente;
+    }
+    return null;
+    }
 }
 

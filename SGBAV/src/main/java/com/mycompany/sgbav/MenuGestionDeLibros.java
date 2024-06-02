@@ -54,11 +54,11 @@ public class MenuGestionDeLibros {
         String titulo = scanner.next();
         System.out.print("Ingrese el autor del libro: ");
         String autor = scanner.next();
-        System.out.print("Ingrese el autor del id: ");
+        System.out.print("Ingrese el id del libro: ");
         String id = scanner.next();
-        System.out.print("Ingrese el autor del categoria: ");
+        System.out.print("Ingrese la categoria del libro: ");
         String categoria = scanner.next();
-        System.out.print("Ingrese el autor del stock: ");
+        System.out.print("Ingrese el stock del libro: ");
         int stock = scanner.nextInt();
 
         Libro nuevoLibro = new Libro(titulo, autor, id, categoria, stock);
