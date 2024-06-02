@@ -24,6 +24,8 @@ public class GestionDePrestamo {
 
         // Mostrar la lista de libros
         System.out.println("Lista de Libros Disponibles:");
+        System.out.println("*** Libros ***");
+        System.out.println("Titulo - Autor - Id - Categoria - Stock");
         listaLibros.verLista();
 
         System.out.print("Ingrese el ID del libro que desea solicitar: ");
