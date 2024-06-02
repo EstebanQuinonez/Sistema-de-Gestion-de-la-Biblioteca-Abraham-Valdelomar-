@@ -9,10 +9,10 @@ public class MenuGestionDeLibros {
 
     public static void menuGestionDeLibros(ListaDoblementeEnlazada<Libro> listaLibros) {
         System.out.println("\n***Gestion de libros***");
-        System.out.println("1. Agregar Libro.");
-        System.out.println("2. Opcion dos.");
-        System.out.println("3. Opcion tres.");
-        System.out.println("4. Ver Lista de Libros.");
+        System.out.println("1. Agregar Libro");
+        System.out.println("2. ");
+        System.out.println("3. Eliminar Libro");
+        System.out.println("4. Ver Lista de Libros");
         System.out.println("5. Volver.");
 
         int opcion;
@@ -32,9 +32,12 @@ public class MenuGestionDeLibros {
 
                 break;
             case 3:
-
+                listaLibros.verLista();
+                eliminarLibro(listaLibros);
                 break;
             case 4:
+                System.out.println("*** Libros ***");
+                System.out.println("Titulo - Autor - Id - Categoria - Stock");
                 listaLibros.verLista();
 
                 break;
@@ -65,4 +68,22 @@ public class MenuGestionDeLibros {
         listaLibros.agregarElemento(nuevoLibro);
         System.out.println("Libro registrado correctamente.");
     }
+    
+    private static void eliminarLibro(ListaDoblementeEnlazada<Libro> listaLibros) {
+    Scanner scanner = new Scanner(System.in);
+    
+    System.out.println("*** Libros ***");
+    System.out.println("Titulo - Autor - Id - Categoria - Stock");
+    System.out.print("Ingrese el titulo a eliminar: ");
+    String tituloEliminar = scanner.nextLine();
+    Libro libroAEliminar = new Libro(tituloEliminar, null, null, null, 0); // Solo se necesita el título para eliminar
+    boolean libroEncontrado = listaLibros.eliminarElemento(libroAEliminar);
+    
+    if (libroEncontrado) {
+        System.out.println("Libro \"" + tituloEliminar + "\" eliminado.");
+    } else {
+        System.out.println("Libro \"" + tituloEliminar + "\" no encontrado.");
+    }
+}
+
 }

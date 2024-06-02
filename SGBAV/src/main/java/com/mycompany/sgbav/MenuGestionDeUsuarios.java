@@ -8,10 +8,10 @@ import java.util.Scanner;
 public class MenuGestionDeUsuarios {
 
     public static void menuGestionDeUsuarios(ListaDoblementeEnlazada<Libro> listaLibros) {
-        System.out.println("\n***Gestión de usuarios***");
+        System.out.println("\n***Gestion de usuarios***");
         System.out.println("1. Buscar usuario.");
         System.out.println("2. Eliminar usuario.");
-        System.out.println("3. Agragar usuario.");
+        System.out.println("3. Agregar usuario.");
         System.out.println("4. Ver lista de usuarios.");
         System.out.println("5. Volver.");
         System.out.println("6. Salir.");

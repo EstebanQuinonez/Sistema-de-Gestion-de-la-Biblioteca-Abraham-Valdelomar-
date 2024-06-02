@@ -44,14 +44,16 @@ public class Libro {
     }
     
     @Override
+    public boolean equals(Object obj) {
+        if (this == obj) return true;
+        if (obj == null || getClass() != obj.getClass()) return false;
+        Libro libro = (Libro) obj;
+        return titulo.equals(libro.titulo); // Comparar solo por el título
+    }
+    
+    @Override
     public String toString() {
-        return "Libro{" +
-                "titulo='" + titulo + '\'' +
-                ", autor='" + autor + '\'' +
-                ", id='" + id + '\'' +
-                ", categoria='" + categoria + '\'' +
-                ", stock=" + stock +
-                '}';
+        return  titulo + " - " + autor +" - " + id + " - " + categoria + " - " + stock;
     }
 
 }
