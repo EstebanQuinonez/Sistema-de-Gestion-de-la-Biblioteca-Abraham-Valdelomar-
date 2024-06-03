@@ -52,24 +52,31 @@ public class Libro {
     }
     
     public void disminuirStock(int cantidad) {
-    if (this.stock >= cantidad) {
-        this.stock -= cantidad;
-    } else {
-        System.out.println("No hay suficientes libros en stock para completar el préstamo.");
-      }
+        if (this.stock >= cantidad) {
+            this.stock -= cantidad;
+        } else {
+            System.out.println("No hay suficientes libros en stock para completar el préstamo.");
+        }
     }
     
     public void aumentarStock(int cantidad) {
-    if (this.stock <= cantidad) {
-        this.stock += cantidad;
-    } else {
-        System.out.println("El stock se encuentra al maximo");
-      }
+        if (this.stock <= cantidad) {
+            this.stock += cantidad;
+        } else {
+            System.out.println("El stock se encuentra al máximo");
+        }
+    }
+    
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) return true;
+        if (obj == null || getClass() != obj.getClass()) return false;
+        Libro libro = (Libro) obj;
+        return titulo.equals(libro.titulo); // Comparar solo por el título
     }
     
     @Override
     public String toString() {
         return  titulo + " - " + autor +" - " + id + " - " + categoria + " - " + stock;
     }
-
 }
