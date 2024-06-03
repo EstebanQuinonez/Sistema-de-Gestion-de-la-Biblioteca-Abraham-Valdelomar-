@@ -34,6 +34,22 @@ public class Libro {
     public int getStock() {
         return stock;
     }
+
+    public void setTitulo(String titulo) {
+        this.titulo = titulo;
+    }
+
+    public void setAutor(String autor) {
+        this.autor = autor;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public void setCategoria(String categoria) {
+        this.categoria = categoria;
+    }
     
     public void disminuirStock(int cantidad) {
     if (this.stock >= cantidad) {
@@ -49,14 +65,6 @@ public class Libro {
     } else {
         System.out.println("El stock se encuentra al maximo");
       }
-    }
-    
-    @Override
-    public boolean equals(Object obj) {
-        if (this == obj) return true;
-        if (obj == null || getClass() != obj.getClass()) return false;
-        Libro libro = (Libro) obj;
-        return titulo.equals(libro.titulo); // Comparar solo por el título
     }
     
     @Override
