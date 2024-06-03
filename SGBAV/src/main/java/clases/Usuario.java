@@ -13,5 +13,7 @@ public class Usuario {
         this.correo = correo;
     }
 
-    // public void buscarUsuarioPorID(String ID) {}
+    public void buscarUsuarioPorID(String ID) {
+        
+    }
 }

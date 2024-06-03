@@ -16,7 +16,6 @@ public class GestionDePrestamo {
 
     public void agregarPrestamo(ListaDoblementeEnlazada<Libro> listaLibros) {
         Scanner scanner = new Scanner(System.in);
-
         System.out.print("Ingrese el id del cliente: ");
         String idCliente = scanner.next();
         System.out.print("Ingrese el nombre del cliente: ");
