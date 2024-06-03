@@ -9,8 +9,6 @@ import java.util.Calendar;
 import java.util.Scanner;
 
 public class GestionDePrestamo {
-    static Calendar Hora = Calendar.getInstance();
-    static Calendar Fecha = Calendar.getInstance();
     private ListaDoblementeEnlazada<Prestamo> listaPrestamos;
     private ListaDoblementeEnlazada<Historial> listaHistorial;
 
@@ -52,13 +50,14 @@ public class GestionDePrestamo {
             int cantidad = scanner.nextInt();
             actual.dato.disminuirStock(cantidad);
 
+            // Obtener la fecha y hora actuales
+            Calendar horaActual = Calendar.getInstance();
+
             Prestamo nuevoPrestamo = new Prestamo(idCliente, nombreCliente, actual.dato.getId(), actual.dato.getTitulo(), actual.dato.getAutor(), actual.dato.getCategoria());
-            int a =Hora.get(Calendar.HOUR);
-            int b =Hora.get(Calendar.MINUTE);
-            int c =Fecha.get(Calendar.DATE);
-            int d =Fecha.get(Calendar.MONTH);
-            int e =Fecha.get(Calendar.YEAR);
-            Historial nuevoHistorial = new Historial(idCliente, nombreCliente, actual.dato.getId(), actual.dato.getTitulo(), actual.dato.getAutor(), a,b,c,d,e);
+            Historial nuevoHistorial = new Historial(idCliente, nombreCliente, actual.dato.getId(), actual.dato.getTitulo(), actual.dato.getAutor(),
+                                                     horaActual.get(Calendar.HOUR_OF_DAY), horaActual.get(Calendar.MINUTE), 
+                                                     horaActual.get(Calendar.DAY_OF_MONTH), horaActual.get(Calendar.MONTH) + 1, 
+                                                     horaActual.get(Calendar.YEAR));
             listaPrestamos.agregarElemento(nuevoPrestamo);
             listaHistorial.agregarElemento(nuevoHistorial);
             System.out.println("Prestamo registrado correctamente.");
@@ -66,13 +65,8 @@ public class GestionDePrestamo {
             System.out.println("Libro no encontrado.");
         }
     }
-    public ListaDoblementeEnlazada<Historial> getListaHistorial(){
+
+    public ListaDoblementeEnlazada<Historial> getListaHistorial() {
         return listaHistorial;
-    }
-    
-    
-    public void mostrarHistorial(){
-        System.out.println("\n*** Historial de Préstamos ***");
-        listaHistorial.verLista();
     }
 }
