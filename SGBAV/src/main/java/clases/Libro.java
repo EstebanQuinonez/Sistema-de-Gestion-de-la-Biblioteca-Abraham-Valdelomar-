@@ -59,6 +59,14 @@ public class Libro {
       }
     }
     
+    public void aumentarStock(int cantidad) {
+    if (this.stock <= cantidad) {
+        this.stock += cantidad;
+    } else {
+        System.out.println("El stock se encuentra al maximo");
+      }
+    }
+    
     @Override
     public String toString() {
         return  titulo + " - " + autor +" - " + id + " - " + categoria + " - " + stock;
