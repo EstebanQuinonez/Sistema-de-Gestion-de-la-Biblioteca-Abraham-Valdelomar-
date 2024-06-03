@@ -12,7 +12,7 @@ public class GestionDePrestamo {
     static Calendar Hora = Calendar.getInstance();
     static Calendar Fecha = Calendar.getInstance();
     private ListaDoblementeEnlazada<Prestamo> listaPrestamos;
-    private ListaDoblementeEnlazada<Prestamo> listaHistorial;
+    private ListaDoblementeEnlazada<Historial> listaHistorial;
 
     public GestionDePrestamo() {
         this.listaPrestamos = new ListaDoblementeEnlazada<>();
@@ -53,12 +53,26 @@ public class GestionDePrestamo {
             actual.dato.disminuirStock(cantidad);
 
             Prestamo nuevoPrestamo = new Prestamo(idCliente, nombreCliente, actual.dato.getId(), actual.dato.getTitulo(), actual.dato.getAutor(), actual.dato.getCategoria());
-            Historial nuevoHistorial = new Historial(idCliente, nombreCliente, actual.dato.getId(), actual.dato.getTitulo(), actual.dato.getAutor(), Hora.get(Calendar.HOUR),Hora.get(Calendar.MINUTE),Fecha.get(Calendar.DATE), Fecha.get(Calendar.MONTH),Fecha.get(Calendar.YEAR));
+            int a =Hora.get(Calendar.HOUR);
+            int b =Hora.get(Calendar.MINUTE);
+            int c =Fecha.get(Calendar.DATE);
+            int d =Fecha.get(Calendar.MONTH);
+            int e =Fecha.get(Calendar.YEAR);
+            Historial nuevoHistorial = new Historial(idCliente, nombreCliente, actual.dato.getId(), actual.dato.getTitulo(), actual.dato.getAutor(), a,b,c,d,e);
             listaPrestamos.agregarElemento(nuevoPrestamo);
-            //listaHistorial.agregarElemento(nuevoHistorial);
+            listaHistorial.agregarElemento(nuevoHistorial);
             System.out.println("Prestamo registrado correctamente.");
         } else {
             System.out.println("Libro no encontrado.");
         }
+    }
+    public ListaDoblementeEnlazada<Historial> getListaHistorial(){
+        return listaHistorial;
+    }
+    
+    
+    public void mostrarHistorial(){
+        System.out.println("\n*** Historial de Préstamos ***");
+        listaHistorial.verLista();
     }
 }
