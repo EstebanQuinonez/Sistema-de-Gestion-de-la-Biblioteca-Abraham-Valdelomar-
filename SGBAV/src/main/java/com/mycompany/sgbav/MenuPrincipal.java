@@ -39,7 +39,7 @@ public class MenuPrincipal {
                     gestionPrestamo.agregarPrestamo(listaLibros); // Esta línea debería funcionar si todo está correctamente definido
                     break;
                 case 4:
-                    System.out.println("Completar");
+                    GestionDeDevoluciones.gestionDeDevoluciones(listaLibros);
                     break;
                 case 5:
                     VisualHistorial visualHistorial = new VisualHistorial(gestionPrestamo.getListaHistorial());
