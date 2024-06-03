@@ -4,14 +4,17 @@ import clases.ListaDoblementeEnlazada;
 import clases.Libro;
 import clases.Nodo;
 import clases.Prestamo;
+import clases.Historial;
+import java.util.Calendar;
 import java.util.Scanner;
 
 public class GestionDePrestamo {
-
     private ListaDoblementeEnlazada<Prestamo> listaPrestamos;
+    private ListaDoblementeEnlazada<Historial> listaHistorial;
 
     public GestionDePrestamo() {
         this.listaPrestamos = new ListaDoblementeEnlazada<>();
+        this.listaHistorial = new ListaDoblementeEnlazada<>();
     }
 
     public void agregarPrestamo(ListaDoblementeEnlazada<Libro> listaLibros) {
@@ -46,11 +49,23 @@ public class GestionDePrestamo {
             int cantidad = scanner.nextInt();
             actual.dato.disminuirStock(cantidad);
 
+            // Obtener la fecha y hora actuales
+            Calendar horaActual = Calendar.getInstance();
+
             Prestamo nuevoPrestamo = new Prestamo(idCliente, nombreCliente, actual.dato.getId(), actual.dato.getTitulo(), actual.dato.getAutor(), actual.dato.getCategoria());
+            Historial nuevoHistorial = new Historial(idCliente, nombreCliente, actual.dato.getId(), actual.dato.getTitulo(), actual.dato.getAutor(),
+                                                     horaActual.get(Calendar.HOUR_OF_DAY), horaActual.get(Calendar.MINUTE), 
+                                                     horaActual.get(Calendar.DAY_OF_MONTH), horaActual.get(Calendar.MONTH) + 1, 
+                                                     horaActual.get(Calendar.YEAR));
             listaPrestamos.agregarElemento(nuevoPrestamo);
+            listaHistorial.agregarElemento(nuevoHistorial);
             System.out.println("Prestamo registrado correctamente.");
         } else {
             System.out.println("Libro no encontrado.");
         }
+    }
+
+    public ListaDoblementeEnlazada<Historial> getListaHistorial() {
+        return listaHistorial;
     }
 }

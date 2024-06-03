@@ -1,6 +1,7 @@
 package com.mycompany.sgbav;
 
 import clases.Libro;
+import clases.Historial;
 import clases.ListaDoblementeEnlazada;
 import java.util.Scanner;
 
@@ -41,7 +42,8 @@ public class MenuPrincipal {
                     GestionDeDevoluciones.gestionDeDevoluciones(listaLibros);
                     break;
                 case 5:
-                    System.out.println("Completarr");
+                    VisualHistorial visualHistorial = new VisualHistorial(gestionPrestamo.getListaHistorial());
+                    visualHistorial.mostrarHistorial();
                     break;
                 case 6:
                     System.exit(0);
