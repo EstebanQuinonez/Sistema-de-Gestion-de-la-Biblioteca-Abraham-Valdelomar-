@@ -2,11 +2,11 @@
 "Proyecto de gestión de biblioteca 'Abraham Valdelomar', desarrollado por el grupo 7 del curso de estructura de datos. Sistema completo para administrar usuarios, libros, préstamos, devoluciones y visualizar historial. Implementa operaciones de búsqueda, adición, eliminación y visualización de listas."
 **Descripción del Proyecto: Sistema de Gestión de la Biblioteca "Abraham Valdelomar"**
  El sistema estará compuesto por los siguientes módulos:
-1. **Gestión de Usuarios:**
-   - Buscar usuario: Permite buscar usuarios por diferentes criterios, como nombre, apellido o número de identificación.
-   - Eliminar usuario: Permite eliminar un usuario de la base de datos.
-   - Agregar usuario: Permite agregar un nuevo usuario a la biblioteca.
-   - Ver lista de usuarios: Muestra la lista completa de usuarios registrados en la biblioteca.
+1. **Gestión de Cliente:**
+   - Buscar cliente: Permite buscar clientes por diferentes criterios, como nombre, apellido o número de identificación.
+   - Eliminar cliente: Permite eliminar un cliente de la base de datos.
+   - Agregar cliente: Permite agregar un nuevo cliente a la biblioteca.
+   - Ver lista de clientes: Muestra la lista completa de clientes registrados en la biblioteca.
 
 2. **Gestión de Libros:**
    - Buscar libro: Permite buscar libros por título, autor, categoría, etc.
