@@ -4,14 +4,19 @@ import clases.ListaDoblementeEnlazada;
 import clases.Libro;
 import clases.Nodo;
 import clases.Prestamo;
+import clases.Historial;
+import java.util.Calendar;
 import java.util.Scanner;
 
 public class GestionDePrestamo {
-
+    static Calendar Hora = Calendar.getInstance();
+    static Calendar Fecha = Calendar.getInstance();
     private ListaDoblementeEnlazada<Prestamo> listaPrestamos;
+    private ListaDoblementeEnlazada<Prestamo> listaHistorial;
 
     public GestionDePrestamo() {
         this.listaPrestamos = new ListaDoblementeEnlazada<>();
+        this.listaHistorial = new ListaDoblementeEnlazada<>();
     }
 
     public void agregarPrestamo(ListaDoblementeEnlazada<Libro> listaLibros) {
@@ -48,7 +53,9 @@ public class GestionDePrestamo {
             actual.dato.disminuirStock(cantidad);
 
             Prestamo nuevoPrestamo = new Prestamo(idCliente, nombreCliente, actual.dato.getId(), actual.dato.getTitulo(), actual.dato.getAutor(), actual.dato.getCategoria());
+            Historial nuevoHistorial = new Historial(idCliente, nombreCliente, actual.dato.getId(), actual.dato.getTitulo(), actual.dato.getAutor(), Hora.get(Calendar.HOUR),Hora.get(Calendar.MINUTE),Fecha.get(Calendar.DATE), Fecha.get(Calendar.MONTH),Fecha.get(Calendar.YEAR));
             listaPrestamos.agregarElemento(nuevoPrestamo);
+            //listaHistorial.agregarElemento(nuevoHistorial);
             System.out.println("Prestamo registrado correctamente.");
         } else {
             System.out.println("Libro no encontrado.");
