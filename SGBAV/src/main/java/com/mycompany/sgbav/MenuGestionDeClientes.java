@@ -38,7 +38,12 @@ public class MenuGestionDeClientes {
 
                 break;
             case 3:
-                Cliente.agregarCliente();
+                // inicialización provisional
+                int ID = 0;
+                String nombre = "nn";
+                String correo = "nn";
+                //
+                Cliente.agregarCliente(ID, nombre, correo, listaClientes);
 
                 break;
             case 4:

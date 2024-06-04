@@ -1,6 +1,6 @@
 package com.mycompany.sgbav;
 import clases.Libro;
-import clases.Usuario;
+import clases.Cliente;
 import clases.ListaDoblementeEnlazada;
 
 import java.util.Scanner;
@@ -11,10 +11,10 @@ public class SGBAV {
  
         Scanner scanner = new Scanner(System.in);
         ListaDoblementeEnlazada<Libro> listaLibros = new ListaDoblementeEnlazada<>();
-        ListaDoblementeEnlazada<Usuario> listaUsuarios = new ListaDoblementeEnlazada<>();
+        ListaDoblementeEnlazada<Cliente> listaClientes = new ListaDoblementeEnlazada<>();
         int opc;
         int subOpc;
 
-        MenuPrincipal.menuPrincipal(listaLibros, listaUsuarios);
+        MenuPrincipal.menuPrincipal(listaLibros, listaClientes);
     }
 }
