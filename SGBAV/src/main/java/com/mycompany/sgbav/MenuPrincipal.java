@@ -1,12 +1,14 @@
 package com.mycompany.sgbav;
 
 import clases.Libro;
+import clases.Usuario;
+import clases.Historial;
 import clases.ListaDoblementeEnlazada;
 import java.util.Scanner;
 
 public class MenuPrincipal {
 
-    public static void menuPrincipal(ListaDoblementeEnlazada<Libro> listaLibros) {
+    public static void menuPrincipal(ListaDoblementeEnlazada<Libro> listaLibros, ListaDoblementeEnlazada<Usuario> listaUsuarios) {
         int opcion;
         GestionDePrestamo gestionPrestamo = new GestionDePrestamo(); // Asegúrate de que esta línea es correcta
 
@@ -29,19 +31,20 @@ public class MenuPrincipal {
 
             switch (opcion) {
                 case 1:
-                    MenuGestionDeUsuarios.menuGestionDeUsuarios(listaLibros);
+                    MenuGestionDeUsuarios.menuGestionDeUsuarios(listaLibros, listaUsuarios);
                     break;
                 case 2:
-                    MenuGestionDeLibros.menuGestionDeLibros(listaLibros);
+                    MenuGestionDeLibros.menuGestionDeLibros(listaLibros, listaUsuarios);
                     break;
                 case 3:
                     gestionPrestamo.agregarPrestamo(listaLibros); // Esta línea debería funcionar si todo está correctamente definido
                     break;
                 case 4:
-                    System.out.println("Completar");
+                    GestionDeDevoluciones.gestionDeDevoluciones(listaLibros, listaUsuarios);
                     break;
                 case 5:
-                    System.out.println("Completarr");
+                    VisualHistorial visualHistorial = new VisualHistorial(gestionPrestamo.getListaHistorial());
+                    visualHistorial.mostrarHistorial();
                     break;
                 case 6:
                     System.exit(0);
