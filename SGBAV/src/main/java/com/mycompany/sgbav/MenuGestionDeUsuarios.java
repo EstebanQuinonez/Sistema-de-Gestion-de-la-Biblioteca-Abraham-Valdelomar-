@@ -2,12 +2,13 @@ package com.mycompany.sgbav;
 
 import clases.Libro;
 import clases.ListaDoblementeEnlazada;
+import clases.Usuario;
 
 import java.util.Scanner;
 
 public class MenuGestionDeUsuarios {
 
-    public static void menuGestionDeUsuarios(ListaDoblementeEnlazada<Libro> listaLibros) {
+    public static void menuGestionDeUsuarios(ListaDoblementeEnlazada<Libro> listaLibros, ListaDoblementeEnlazada<Usuario> listaUsuarios) {
         System.out.println("\n***Gestion de usuarios***");
         System.out.println("1. Buscar usuario.");
         System.out.println("2. Eliminar usuario.");
@@ -41,7 +42,7 @@ public class MenuGestionDeUsuarios {
                 // verListaDeUsuarios();
                 break;
             case 5:
-                MenuPrincipal.menuPrincipal(listaLibros);
+                MenuPrincipal.menuPrincipal(listaLibros, listaUsuarios);
 
                 break;
             case 6:
