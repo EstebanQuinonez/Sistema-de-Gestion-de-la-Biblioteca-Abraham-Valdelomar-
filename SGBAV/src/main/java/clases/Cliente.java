@@ -7,7 +7,7 @@ public class Cliente {
     private String nombre;
     private String correo;
 
-    public Cliente(String ID, String nombre, String apellido, String correo) {
+    public Cliente(String ID, String nombre, String correo) {
         this.ID = ID;
         this.nombre = nombre;
         this.correo = correo;
@@ -53,10 +53,18 @@ public class Cliente {
     }
     */
 
-    public static void agregarCliente(int ID, String nombre, String correo, ListaDoblementeEnlazada<Cliente> listaClientes) {
+    /*public static void agregarCliente(int ID, String nombre, String correo, ListaDoblementeEnlazada<Cliente> listaClientes) {
        // se crea objeco cliente y se devuelve: void --> Cliente
     }
     public static void verListaDeClientes(ListaDoblementeEnlazada<Cliente> listaClientes) {
 
+    }*/
+    
+    @Override
+    public String toString() {
+        return "Cliente ID: " + ID + ", Nombre: " + nombre + ", Correo: " + correo;
     }
+    
 }
+    
+
