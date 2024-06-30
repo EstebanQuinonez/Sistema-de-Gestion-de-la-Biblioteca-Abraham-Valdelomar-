@@ -38,7 +38,7 @@ public class GestionDeDevoluciones {
         switch (opcion)
         {
             case 1:
-                buscarUsuario(listaClientes);
+               /* buscarUsuario(listaClientes);*/
 
                 break;
             case 2:
@@ -56,7 +56,7 @@ public class GestionDeDevoluciones {
     }
     
     
-    public static void buscarUsuario(ListaDoblementeEnlazada<Cliente> listaClientes){
+ /*   public static void buscarUsuario(ListaDoblementeEnlazada<Cliente> listaClientes){
         Scanner scanner = new Scanner(System.in);
         System.out.print("Ingrese el id del cliente: ");
         String idCliente = scanner.next();
@@ -80,5 +80,5 @@ public class GestionDeDevoluciones {
         } else {
             System.out.println("Usuario no encontrado.");
         }
-    }
+    }*/
 }

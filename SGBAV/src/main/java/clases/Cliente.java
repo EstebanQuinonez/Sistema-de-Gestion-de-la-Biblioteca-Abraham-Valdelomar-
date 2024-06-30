@@ -39,19 +39,19 @@ public class Cliente {
         System.out.println("El correo del cliente es: " + cliente.getCorreo());
     }
 
-    /*
-    public static Cliente buscarClientePorID(int ID, ListaDoblementeEnlazada<Cliente> listaClientes) {
+    
+  /*  public static Cliente buscarClientePorID(int ID, ListaDoblementeEnlazada<Cliente> listaClientes) {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Ingrese el ID a buscar: ");
 
-    }
-    */
+    }*/
+    
 
-    /*
-    public static Cliente eliminarClientePorID(int ID, ListaDoblementeEnlazada<Cliente> listaClientes) {
+    
+   /* public static Cliente eliminarClientePorID(int ID, ListaDoblementeEnlazada<Cliente> listaClientes) {
         return ;
-    }
-    */
+    }*/
+    
 
     public static void agregarCliente(int ID, String nombre, String correo, ListaDoblementeEnlazada<Cliente> listaClientes) {
        // se crea objeco cliente y se devuelve: void --> Cliente
