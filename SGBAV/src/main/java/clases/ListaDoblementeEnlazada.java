@@ -69,7 +69,6 @@ public class ListaDoblementeEnlazada<T> {
         actual = actual.getSiguiente();
     }
     return false; // No se encontró el elemento a editar
-}
-
+    }
 }
 

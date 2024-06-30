@@ -1,6 +1,6 @@
 package clases;
 
-import java.util.Scanner;
+import java.util.Objects;
 
 public class Cliente {
     private String ID;
@@ -37,34 +37,25 @@ public class Cliente {
         System.out.println("El ID del cliente es: " + cliente.getID());
         System.out.println("El nombre del cliente es: " + cliente.getNombre());
         System.out.println("El correo del cliente es: " + cliente.getCorreo());
+    } 
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) return true;
+        if (obj == null || getClass() != obj.getClass()) return false;
+        Cliente cliente = (Cliente) obj;
+        return ID.equals(cliente.ID); // Compara por ID
     }
 
-    
-  /*  public static Cliente buscarClientePorID(int ID, ListaDoblementeEnlazada<Cliente> listaClientes) {
-        Scanner scanner = new Scanner(System.in);
-        System.out.println("Ingrese el ID a buscar: ");
-
-    }*/
-    
-
-    
-   /* public static Cliente eliminarClientePorID(int ID, ListaDoblementeEnlazada<Cliente> listaClientes) {
-        return ;
-    }*/
-    
-
-    /*public static void agregarCliente(int ID, String nombre, String correo, ListaDoblementeEnlazada<Cliente> listaClientes) {
-       // se crea objeco cliente y se devuelve: void --> Cliente
+    @Override
+    public int hashCode() {
+        return Objects.hash(ID); // Genera un hashcode basado en el ID
     }
-    public static void verListaDeClientes(ListaDoblementeEnlazada<Cliente> listaClientes) {
-
-    }*/
     
     @Override
     public String toString() {
         return "ID Cliente: " + ID + 
-                " / Nombre: " + nombre + 
-                " / Correo: " + correo;
+               " / Nombre: " + nombre + 
+               " / Correo: " + correo;
     }
     
 }

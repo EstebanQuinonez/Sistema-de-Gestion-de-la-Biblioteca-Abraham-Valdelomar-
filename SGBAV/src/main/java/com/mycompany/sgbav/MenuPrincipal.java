@@ -2,9 +2,7 @@ package com.mycompany.sgbav;
 
 import clases.Libro;
 import clases.Cliente;
-import clases.Historial;
 import clases.ListaDoblementeEnlazada;
-import clases.Prestamo;
 import java.util.Scanner;
 
 public class MenuPrincipal {
@@ -15,7 +13,7 @@ public class MenuPrincipal {
 
         do {
             System.out.println("\n***Biblioteca Abraham Valdelomar***");
-            System.out.println("1. Gestion de Usuarios");
+            System.out.println("1. Gestion de Clientes");
             System.out.println("2. Gestion de Libros");
             System.out.println("3. Prestamo");
             System.out.println("4. Devolucion");
@@ -32,7 +30,7 @@ public class MenuPrincipal {
 
             switch (opcion) {
                 case 1:
-                    MenuGestionDeClientes.menuGestionDeClientes(listaLibros, listaClientes);
+                    MenuGestionDeClientes.menuGestionDeClientes(listaClientes, listaLibros);
                     break;
                 case 2:
                     MenuGestionDeLibros.menuGestionDeLibros(listaLibros, listaClientes);

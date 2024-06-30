@@ -53,34 +53,4 @@ public class GestionDeDevoluciones {
             
         }
     }
-      
- /*   public static void buscarUsuario(ListaDoblementeEnlazada<Cliente> listaClientes){
-=======
-      
-    public static void buscarUsuario(ListaDoblementeEnlazada<Cliente> listaClientes){
->>>>>>> c12aa226eaa0df7e7d830aafa68f8fc255693cce
-        Scanner scanner = new Scanner(System.in);
-        System.out.print("Ingrese el id del cliente: ");
-        String idCliente = scanner.next();
-        
-        Nodo<Cliente> actual = listaClientes.getCabeza();
-        boolean encontrado = false;
-        while (actual != null) {
-            if (actual.dato.getID().equalsIgnoreCase(idCliente)) {
-                encontrado = true;
-                break;
-            }
-            actual = actual.siguiente;
-        }
-        
-        if (encontrado) {
-            String nombreCliente = actual.dato.getNombre();
-            System.out.print("Usuario encontrado ");
-            System.out.print("ID: "+idCliente+" - Nombre: "+nombreCliente);
-
-        } else {
-            System.out.println("Usuario no encontrado.");
-        }
-<<<<<<< HEAD
-    }*/
 }

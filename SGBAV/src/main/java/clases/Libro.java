@@ -1,5 +1,7 @@
 package clases;
 
+import java.util.Objects;
+
 public class Libro {
     private String titulo;
     private String autor;
@@ -51,6 +53,10 @@ public class Libro {
         this.categoria = categoria;
     }
     
+    public String getID() {
+        return this.id;
+    }
+    
     public void disminuirStock(int cantidad) {
         if (this.stock >= cantidad) {
             this.stock -= cantidad;
@@ -63,16 +69,18 @@ public class Libro {
         stock += cantidad;
     }
     
-    public String getID() {
-        return this.id;
-    }
-    
+   
     @Override
     public boolean equals(Object obj) {
         if (this == obj) return true;
         if (obj == null || getClass() != obj.getClass()) return false;
         Libro libro = (Libro) obj;
-        return titulo.equals(libro.titulo); // Comparar solo por el título
+        return id.equals(libro.id); // Comparar por ID
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id); // Generar hashCode basado en ID
     }
     
     @Override
