@@ -67,6 +67,14 @@ public class Libro {
         }
     }
     
+    public void incrementarCantidad() {
+        this.stock++;
+    }
+    
+    public String getID() {
+        return this.id;
+    }
+    
     @Override
     public boolean equals(Object obj) {
         if (this == obj) return true;

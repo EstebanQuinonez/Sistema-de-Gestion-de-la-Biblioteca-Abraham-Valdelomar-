@@ -6,18 +6,20 @@ public class Historial {
     private String idLibro;
     private String tituloLibro;
     private String autorLibro;
+    private String accion;
     private int hora;
     private int min;
     private int dia;
     private int mes;
     private int anio;
 
-    public Historial(String idCliente, String nombreCliente, String idLibro, String tituloLibro, String autorLibro, int hora, int min, int dia, int mes, int anio) {
+    public Historial(String idCliente, String nombreCliente, String idLibro, String tituloLibro, String autorLibro,String accion, int hora, int min, int dia, int mes, int anio) {
         this.idCliente = idCliente;
         this.nombreCliente = nombreCliente;
         this.idLibro = idLibro;
         this.tituloLibro = tituloLibro;
         this.autorLibro = autorLibro;
+        this.accion = accion;
         this.hora = hora;
         this.min = min;
         this.dia = dia;
@@ -70,7 +72,8 @@ public class Historial {
 
     @Override
     public String toString() {
-        return "Historial{" + "idCliente=" + idCliente + ", nombreCliente=" + nombreCliente + ", idLibro=" + idLibro + ", tituloLibro=" + tituloLibro + ", autorLibro=" + autorLibro + ", hora=" + hora + ", min=" + min + ", dia=" + dia + ", mes=" + mes + ", anio=" + anio + '}';
+        return "El libro " + tituloLibro + " / Cliente: " + idCliente + " / Nombre: " + nombreCliente +
+                " fecha: " + dia + "/" + mes + "/" + anio + " hora: " + hora + ":" + min + "--> Accion: " + accion;
     }
     
     

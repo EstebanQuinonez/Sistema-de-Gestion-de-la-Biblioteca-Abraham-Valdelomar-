@@ -53,7 +53,7 @@ public class GestionDePrestamo {
             Calendar horaActual = Calendar.getInstance();
 
             Prestamo nuevoPrestamo = new Prestamo(idCliente, nombreCliente, actual.dato.getId(), actual.dato.getTitulo(), actual.dato.getAutor(), actual.dato.getCategoria());
-            Historial nuevoHistorial = new Historial(idCliente, nombreCliente, actual.dato.getId(), actual.dato.getTitulo(), actual.dato.getAutor(),
+            Historial nuevoHistorial = new Historial(idCliente, nombreCliente, actual.dato.getId(), actual.dato.getTitulo(), actual.dato.getAutor(),"Prestamo",
                                                      horaActual.get(Calendar.HOUR_OF_DAY), horaActual.get(Calendar.MINUTE), 
                                                      horaActual.get(Calendar.DAY_OF_MONTH), horaActual.get(Calendar.MONTH) + 1, 
                                                      horaActual.get(Calendar.YEAR));

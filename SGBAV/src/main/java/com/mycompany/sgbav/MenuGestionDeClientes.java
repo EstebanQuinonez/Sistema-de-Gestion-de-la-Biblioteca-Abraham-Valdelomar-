@@ -81,7 +81,7 @@ public class MenuGestionDeClientes {
             case 1:
                 System.out.println("Ingrese el ID a buscar: ");
                 int ID = scanner.nextInt();
-                Cliente.buscarClientePorID(ID, listaClientes);
+                //Cliente.buscarClientePorID(ID, listaClientes);
 
                 break;
             case 2:
@@ -125,7 +125,7 @@ public class MenuGestionDeClientes {
             case 1:
                 System.out.println("Ingrese el ID a buscar: ");
                 int ID = scanner.nextInt();
-                Cliente.eliminarClientePorID(ID, listaClientes);
+                //Cliente.eliminarClientePorID(ID, listaClientes);
 
                 break;
             case 2:
