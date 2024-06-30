@@ -71,8 +71,5 @@ public class ListaDoblementeEnlazada<T> {
     return false; // No se encontró el elemento a editar
 }
 
-
-
-
 }
 

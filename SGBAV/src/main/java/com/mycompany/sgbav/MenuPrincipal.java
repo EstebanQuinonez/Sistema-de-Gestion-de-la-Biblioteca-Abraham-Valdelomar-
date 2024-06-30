@@ -4,6 +4,7 @@ import clases.Libro;
 import clases.Cliente;
 import clases.Historial;
 import clases.ListaDoblementeEnlazada;
+import clases.Prestamo;
 import java.util.Scanner;
 
 public class MenuPrincipal {
@@ -37,7 +38,7 @@ public class MenuPrincipal {
                     MenuGestionDeLibros.menuGestionDeLibros(listaLibros, listaClientes);
                     break;
                 case 3:
-                    gestionPrestamo.agregarPrestamo(listaLibros); // Esta línea debería funcionar si todo está correctamente definido
+                    gestionPrestamo.agregarPrestamo(listaLibros, listaClientes);
                     break;
                 case 4:
                     GestionDeDevoluciones.gestionDeDevoluciones(listaLibros, listaClientes);

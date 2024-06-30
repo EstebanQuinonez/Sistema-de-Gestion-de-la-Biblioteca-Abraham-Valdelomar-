@@ -36,8 +36,7 @@ public class MenuGestionDeLibros {
                 eliminarLibro(listaLibros);
                 break;
             case 4:
-                System.out.println("*** Libros ***");
-                System.out.println("Titulo - Autor - Id - Categoria - Stock");
+                System.out.println("*** Lista de Libros ***");
                 listaLibros.verLista();
                 break;
             case 5:

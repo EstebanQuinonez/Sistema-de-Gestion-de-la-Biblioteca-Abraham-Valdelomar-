@@ -1,4 +1,3 @@
-
 package com.mycompany.sgbav;
 
 import clases.ListaDoblementeEnlazada;
@@ -54,9 +53,12 @@ public class GestionDeDevoluciones {
             
         }
     }
-    
-    
+      
  /*   public static void buscarUsuario(ListaDoblementeEnlazada<Cliente> listaClientes){
+=======
+      
+    public static void buscarUsuario(ListaDoblementeEnlazada<Cliente> listaClientes){
+>>>>>>> c12aa226eaa0df7e7d830aafa68f8fc255693cce
         Scanner scanner = new Scanner(System.in);
         System.out.print("Ingrese el id del cliente: ");
         String idCliente = scanner.next();
@@ -73,12 +75,12 @@ public class GestionDeDevoluciones {
         
         if (encontrado) {
             String nombreCliente = actual.dato.getNombre();
-            String apellidoCliente = actual.dato.getApellido();
             System.out.print("Usuario encontrado ");
-            System.out.print("ID: "+idCliente+" - Nombre: "+nombreCliente+" - Apellido:" +apellidoCliente);
+            System.out.print("ID: "+idCliente+" - Nombre: "+nombreCliente);
 
         } else {
             System.out.println("Usuario no encontrado.");
         }
+<<<<<<< HEAD
     }*/
 }

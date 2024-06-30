@@ -2,6 +2,7 @@ package com.mycompany.sgbav;
 
 import clases.ListaDoblementeEnlazada;
 import clases.Libro;
+import clases.Cliente;
 import clases.Nodo;
 import clases.Prestamo;
 import clases.Historial;
@@ -17,17 +18,41 @@ public class GestionDePrestamo {
         this.listaHistorial = new ListaDoblementeEnlazada<>();
     }
 
-    public void agregarPrestamo(ListaDoblementeEnlazada<Libro> listaLibros) {
+    public void agregarPrestamo(ListaDoblementeEnlazada<Libro> listaLibros, ListaDoblementeEnlazada<Cliente> listaClientes) {
         Scanner scanner = new Scanner(System.in);
-        System.out.print("Ingrese el id del cliente: ");
+        
+        // Mostrar la lista de clientes
+        System.out.println("*** Lista de Clientes ***");
+        Nodo<Cliente> clienteActual = listaClientes.getCabeza();
+        while (clienteActual != null) {
+            System.out.println(clienteActual.getDato().toString());
+            clienteActual = clienteActual.getSiguiente();
+        }
+
+        // Solicitar el ID del cliente
+        System.out.print("Ingrese el ID del cliente: ");
         String idCliente = scanner.next();
-        System.out.print("Ingrese el nombre del cliente: ");
-        String nombreCliente = scanner.next();
+        
+        // Buscar el cliente por ID
+        clienteActual = listaClientes.getCabeza();
+        Cliente clienteEncontrado = null;
+        while (clienteActual != null) {
+            if (clienteActual.getDato().getID().equalsIgnoreCase(idCliente)) {
+                clienteEncontrado = clienteActual.getDato();
+                break;
+            }
+            clienteActual = clienteActual.getSiguiente();
+        }
+
+        if (clienteEncontrado == null) {
+            System.out.println("Cliente no encontrado.");
+            return;
+        }
+
+        String nombreCliente = clienteEncontrado.getNombre();
 
         // Mostrar la lista de libros
-        System.out.println("Lista de Libros Disponibles:");
-        System.out.println("*** Libros ***");
-        System.out.println("Titulo - Autor - Id - Categoria - Stock");
+        System.out.println("*** Lista de Libros ***");
         listaLibros.verLista();
 
         System.out.print("Ingrese el ID del libro que desea solicitar: ");
@@ -47,19 +72,25 @@ public class GestionDePrestamo {
         if (encontrado) {
             System.out.print("Ingrese el numero de libros que desea solicitar: ");
             int cantidad = scanner.nextInt();
-            actual.dato.disminuirStock(cantidad);
 
-            // Obtener la fecha y hora actuales
-            Calendar horaActual = Calendar.getInstance();
+            // Verificar si hay suficiente stock
+            if (actual.dato.getStock() >= cantidad) {
+                actual.dato.disminuirStock(cantidad);
 
-            Prestamo nuevoPrestamo = new Prestamo(idCliente, nombreCliente, actual.dato.getId(), actual.dato.getTitulo(), actual.dato.getAutor(), actual.dato.getCategoria());
-            Historial nuevoHistorial = new Historial(idCliente, nombreCliente, actual.dato.getId(), actual.dato.getTitulo(), actual.dato.getAutor(),
-                                                     horaActual.get(Calendar.HOUR_OF_DAY), horaActual.get(Calendar.MINUTE), 
-                                                     horaActual.get(Calendar.DAY_OF_MONTH), horaActual.get(Calendar.MONTH) + 1, 
-                                                     horaActual.get(Calendar.YEAR));
-            listaPrestamos.agregarElemento(nuevoPrestamo);
-            listaHistorial.agregarElemento(nuevoHistorial);
-            System.out.println("Prestamo registrado correctamente.");
+                // Obtener la fecha y hora actuales
+                Calendar horaActual = Calendar.getInstance();
+
+                Prestamo nuevoPrestamo = new Prestamo(idCliente, nombreCliente, actual.dato.getId(), actual.dato.getTitulo(), actual.dato.getAutor(), actual.dato.getCategoria(), cantidad);
+                Historial nuevoHistorial = new Historial(idCliente, nombreCliente, actual.dato.getId(), actual.dato.getTitulo(), actual.dato.getAutor(),"Prestamo",
+                                                         horaActual.get(Calendar.HOUR_OF_DAY), horaActual.get(Calendar.MINUTE), 
+                                                         horaActual.get(Calendar.DAY_OF_MONTH), horaActual.get(Calendar.MONTH) + 1, 
+                                                         horaActual.get(Calendar.YEAR));
+                listaPrestamos.agregarElemento(nuevoPrestamo);
+                listaHistorial.agregarElemento(nuevoHistorial);
+                System.out.println("Prestamo registrado correctamente.");
+            } else {
+                System.out.println("No hay suficientes libros en stock para completar el préstamo.");
+            }
         } else {
             System.out.println("Libro no encontrado.");
         }
@@ -67,5 +98,17 @@ public class GestionDePrestamo {
 
     public ListaDoblementeEnlazada<Historial> getListaHistorial() {
         return listaHistorial;
+    }
+
+    public void mostrarHistorial() {
+        Nodo<Historial> actual = listaHistorial.getCabeza();
+        if (actual == null) {
+            System.out.println("No hay historial disponible.");
+        } else {
+            while (actual != null) {
+                System.out.println(actual.getDato().toString());
+                actual = actual.getSiguiente();
+            }
+        }
     }
 }

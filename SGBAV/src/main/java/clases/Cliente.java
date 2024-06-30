@@ -3,21 +3,21 @@ package clases;
 import java.util.Scanner;
 
 public class Cliente {
-    private int ID;
+    private String ID;
     private String nombre;
     private String correo;
 
-    public Cliente(int ID, String nombre, String apellido, String correo) {
+    public Cliente(String ID, String nombre, String correo) {
         this.ID = ID;
         this.nombre = nombre;
         this.correo = correo;
     }
 
     // Getters and setters
-    public int getID() {
+    public String getID() {
         return ID;
     }
-    public void setID(int ID) {
+    public void setID(String ID) {
         this.ID = ID;
     }
     public String getNombre() {
@@ -53,10 +53,20 @@ public class Cliente {
     }*/
     
 
-    public static void agregarCliente(int ID, String nombre, String correo, ListaDoblementeEnlazada<Cliente> listaClientes) {
+    /*public static void agregarCliente(int ID, String nombre, String correo, ListaDoblementeEnlazada<Cliente> listaClientes) {
        // se crea objeco cliente y se devuelve: void --> Cliente
     }
     public static void verListaDeClientes(ListaDoblementeEnlazada<Cliente> listaClientes) {
 
+    }*/
+    
+    @Override
+    public String toString() {
+        return "ID Cliente: " + ID + 
+                " / Nombre: " + nombre + 
+                " / Correo: " + correo;
     }
+    
 }
+    
+

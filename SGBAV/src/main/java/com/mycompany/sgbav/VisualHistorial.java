@@ -14,7 +14,7 @@ public class VisualHistorial {
 
     // Método para mostrar los elementos de la lista de historial
     public void mostrarHistorial() {
-        System.out.println("\n*** Historial de Préstamos ***");
+        System.out.println("\n*** Historial de Prestamos ***");
         Nodo<Historial> actual = listaHistorial.getCabeza();
         if (actual == null) {
             System.out.println("No hay registros en el historial.");
