@@ -3,21 +3,21 @@ package clases;
 import java.util.Scanner;
 
 public class Cliente {
-    private int ID;
+    private String ID;
     private String nombre;
     private String correo;
 
-    public Cliente(int ID, String nombre, String apellido, String correo) {
+    public Cliente(String ID, String nombre, String apellido, String correo) {
         this.ID = ID;
         this.nombre = nombre;
         this.correo = correo;
     }
 
     // Getters and setters
-    public int getID() {
+    public String getID() {
         return ID;
     }
-    public void setID(int ID) {
+    public void setID(String ID) {
         this.ID = ID;
     }
     public String getNombre() {

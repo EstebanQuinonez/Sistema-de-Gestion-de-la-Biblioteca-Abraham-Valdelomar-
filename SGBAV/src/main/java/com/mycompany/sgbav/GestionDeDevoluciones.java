@@ -54,8 +54,7 @@ public class GestionDeDevoluciones {
             
         }
     }
-    
-    /*  
+      
     public static void buscarUsuario(ListaDoblementeEnlazada<Cliente> listaClientes){
         Scanner scanner = new Scanner(System.in);
         System.out.print("Ingrese el id del cliente: ");
@@ -73,12 +72,11 @@ public class GestionDeDevoluciones {
         
         if (encontrado) {
             String nombreCliente = actual.dato.getNombre();
-            String apellidoCliente = actual.dato.getApellido();
             System.out.print("Usuario encontrado ");
-            System.out.print("ID: "+idCliente+" - Nombre: "+nombreCliente+" - Apellido:" +apellidoCliente);
+            System.out.print("ID: "+idCliente+" - Nombre: "+nombreCliente);
 
         } else {
             System.out.println("Usuario no encontrado.");
         }
-    }*/
+    }
 }
