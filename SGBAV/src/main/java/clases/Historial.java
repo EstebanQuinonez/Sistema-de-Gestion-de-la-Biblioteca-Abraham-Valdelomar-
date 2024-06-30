@@ -73,7 +73,7 @@ public class Historial {
     @Override
     public String toString() {
         return "El libro " + tituloLibro + " / Cliente: " + idCliente + " / Nombre: " + nombreCliente +
-                " fecha: " + dia + "/" + mes + "/" + anio + " hora: " + hora + ":" + min + "--> Accion: " + accion;
+                " / Fecha: " + dia + "/" + mes + "/" + anio + " / Hora: " + hora + ":" + min + " --> Accion: " + accion;
     }
     
     

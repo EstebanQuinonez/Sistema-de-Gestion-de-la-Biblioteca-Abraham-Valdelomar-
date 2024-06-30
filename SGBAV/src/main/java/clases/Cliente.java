@@ -62,7 +62,9 @@ public class Cliente {
     
     @Override
     public String toString() {
-        return "Cliente ID: " + ID + ", Nombre: " + nombre + ", Correo: " + correo;
+        return "ID Cliente: " + ID + 
+                " / Nombre: " + nombre + 
+                " / Correo: " + correo;
     }
     
 }

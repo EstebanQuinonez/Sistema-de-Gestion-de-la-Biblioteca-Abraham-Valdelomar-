@@ -22,7 +22,7 @@ public class GestionDePrestamo {
         Scanner scanner = new Scanner(System.in);
         
         // Mostrar la lista de clientes
-        System.out.println("Lista de Clientes:");
+        System.out.println("*** Lista de Clientes ***");
         Nodo<Cliente> clienteActual = listaClientes.getCabeza();
         while (clienteActual != null) {
             System.out.println(clienteActual.getDato().toString());
@@ -52,9 +52,7 @@ public class GestionDePrestamo {
         String nombreCliente = clienteEncontrado.getNombre();
 
         // Mostrar la lista de libros
-        System.out.println("Lista de Libros Disponibles:");
-        System.out.println("*** Libros ***");
-        System.out.println("Titulo - Autor - Id - Categoria - Stock");
+        System.out.println("*** Lista de Libros ***");
         listaLibros.verLista();
 
         System.out.print("Ingrese el ID del libro que desea solicitar: ");
@@ -82,7 +80,7 @@ public class GestionDePrestamo {
                 // Obtener la fecha y hora actuales
                 Calendar horaActual = Calendar.getInstance();
 
-                Prestamo nuevoPrestamo = new Prestamo(idCliente, nombreCliente, actual.dato.getId(), actual.dato.getTitulo(), actual.dato.getAutor(), actual.dato.getCategoria());
+                Prestamo nuevoPrestamo = new Prestamo(idCliente, nombreCliente, actual.dato.getId(), actual.dato.getTitulo(), actual.dato.getAutor(), actual.dato.getCategoria(), cantidad);
                 Historial nuevoHistorial = new Historial(idCliente, nombreCliente, actual.dato.getId(), actual.dato.getTitulo(), actual.dato.getAutor(),"Prestamo",
                                                          horaActual.get(Calendar.HOUR_OF_DAY), horaActual.get(Calendar.MINUTE), 
                                                          horaActual.get(Calendar.DAY_OF_MONTH), horaActual.get(Calendar.MONTH) + 1, 

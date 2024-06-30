@@ -59,16 +59,8 @@ public class Libro {
         }
     }
     
-    public void aumentarStock(int cantidad) {
-        if (this.stock <= cantidad) {
-            this.stock += cantidad;
-        } else {
-            System.out.println("El stock se encuentra al máximo");
-        }
-    }
-    
-    public void incrementarCantidad() {
-        this.stock++;
+    public void incrementarStock(int cantidad) {
+        stock += cantidad;
     }
     
     public String getID() {
@@ -85,6 +77,10 @@ public class Libro {
     
     @Override
     public String toString() {
-        return  titulo + " - " + autor +" - " + id + " - " + categoria + " - " + stock;
+        return  "ID Libro: " + id + 
+                " / Titulo: " + titulo + 
+                " / Autor: " + autor + 
+                " / Categoria: " + categoria + 
+                " / Stock: " + stock;
     }
 }

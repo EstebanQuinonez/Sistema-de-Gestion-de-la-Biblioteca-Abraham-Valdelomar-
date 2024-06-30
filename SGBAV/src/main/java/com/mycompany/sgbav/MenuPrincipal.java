@@ -4,6 +4,7 @@ import clases.Libro;
 import clases.Cliente;
 import clases.Historial;
 import clases.ListaDoblementeEnlazada;
+import clases.Prestamo;
 import java.util.Scanner;
 
 public class MenuPrincipal {
