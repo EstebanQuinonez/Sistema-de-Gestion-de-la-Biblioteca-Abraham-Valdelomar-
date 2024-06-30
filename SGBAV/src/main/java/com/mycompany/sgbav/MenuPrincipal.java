@@ -2,15 +2,25 @@ package com.mycompany.sgbav;
 
 import clases.Libro;
 import clases.Cliente;
+import clases.Historial;
 import clases.ListaDoblementeEnlazada;
+import clases.Prestamo;
 import java.util.Scanner;
 
 public class MenuPrincipal {
-
+       
+    private static ListaDoblementeEnlazada<Prestamo> listaPrestamos;
+    private static ListaDoblementeEnlazada<Historial> listaHistorial;
+    private static GestionDePrestamo gestionPrestamo;
+    
     public static void menuPrincipal(ListaDoblementeEnlazada<Libro> listaLibros, ListaDoblementeEnlazada<Cliente> listaClientes) {
         int opcion;
         GestionDePrestamo gestionPrestamo = new GestionDePrestamo(); // Asegúrate de que esta línea es correcta
-
+           
+        listaPrestamos = new ListaDoblementeEnlazada<>();
+        listaHistorial = new ListaDoblementeEnlazada<>();
+        gestionPrestamo = new GestionDePrestamo(listaPrestamos, listaHistorial);
+        
         do {
             System.out.println("\n***Biblioteca Abraham Valdelomar***");
             System.out.println("1. Gestion de Clientes");
@@ -39,7 +49,7 @@ public class MenuPrincipal {
                     gestionPrestamo.agregarPrestamo(listaLibros, listaClientes);
                     break;
                 case 4:
-                    GestionDeDevoluciones.gestionDeDevoluciones(listaLibros, listaClientes);
+                    GestionDeDevoluciones.gestionDeDevoluciones(listaLibros, listaClientes, listaPrestamos, listaHistorial);
                     break;
                 case 5:
                     VisualHistorial visualHistorial = new VisualHistorial(gestionPrestamo.getListaHistorial());
