@@ -38,7 +38,7 @@ public class GestionDeDevoluciones {
         switch (opcion)
         {
             case 1:
-                //buscarUsuario(listaClientes);
+                buscarUsuario(listaClientes);
 
                 break;
             case 2:

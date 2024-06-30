@@ -47,19 +47,25 @@ public class GestionDePrestamo {
         if (encontrado) {
             System.out.print("Ingrese el numero de libros que desea solicitar: ");
             int cantidad = scanner.nextInt();
-            actual.dato.disminuirStock(cantidad);
 
-            // Obtener la fecha y hora actuales
-            Calendar horaActual = Calendar.getInstance();
+            // Verificar si hay suficiente stock
+            if (actual.dato.getStock() >= cantidad) {
+                actual.dato.disminuirStock(cantidad);
 
-            Prestamo nuevoPrestamo = new Prestamo(idCliente, nombreCliente, actual.dato.getId(), actual.dato.getTitulo(), actual.dato.getAutor(), actual.dato.getCategoria());
-            Historial nuevoHistorial = new Historial(idCliente, nombreCliente, actual.dato.getId(), actual.dato.getTitulo(), actual.dato.getAutor(),"Prestamo",
-                                                     horaActual.get(Calendar.HOUR_OF_DAY), horaActual.get(Calendar.MINUTE), 
-                                                     horaActual.get(Calendar.DAY_OF_MONTH), horaActual.get(Calendar.MONTH) + 1, 
-                                                     horaActual.get(Calendar.YEAR));
-            listaPrestamos.agregarElemento(nuevoPrestamo);
-            listaHistorial.agregarElemento(nuevoHistorial);
-            System.out.println("Prestamo registrado correctamente.");
+                // Obtener la fecha y hora actuales
+                Calendar horaActual = Calendar.getInstance();
+
+                Prestamo nuevoPrestamo = new Prestamo(idCliente, nombreCliente, actual.dato.getId(), actual.dato.getTitulo(), actual.dato.getAutor(), actual.dato.getCategoria());
+                Historial nuevoHistorial = new Historial(idCliente, nombreCliente, actual.dato.getId(), actual.dato.getTitulo(), actual.dato.getAutor(),"Prestamo",
+                                                         horaActual.get(Calendar.HOUR_OF_DAY), horaActual.get(Calendar.MINUTE), 
+                                                         horaActual.get(Calendar.DAY_OF_MONTH), horaActual.get(Calendar.MONTH) + 1, 
+                                                         horaActual.get(Calendar.YEAR));
+                listaPrestamos.agregarElemento(nuevoPrestamo);
+                listaHistorial.agregarElemento(nuevoHistorial);
+                System.out.println("Prestamo registrado correctamente.");
+            } else {
+                System.out.println("No hay suficientes libros en stock para completar el préstamo.");
+            }
         } else {
             System.out.println("Libro no encontrado.");
         }
@@ -68,4 +74,17 @@ public class GestionDePrestamo {
     public ListaDoblementeEnlazada<Historial> getListaHistorial() {
         return listaHistorial;
     }
+
+    public void mostrarHistorial() {
+        Nodo<Historial> actual = listaHistorial.getCabeza();
+        if (actual == null) {
+            System.out.println("No hay historial disponible.");
+        } else {
+            while (actual != null) {
+                System.out.println(actual.getDato().toString());
+                actual = actual.getSiguiente();
+            }
+        }
+    }
 }
+
